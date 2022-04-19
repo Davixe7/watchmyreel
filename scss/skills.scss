@@ -1,0 +1,28 @@
+#skills {
+  background-image: url('./../img/skills.png');
+}
+#skills .right-col {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.skills-title {
+  letter-spacing: 0.035em;
+}
+.list {
+  justify-content: space-between;
+  > div {
+    font-family: 'Roboto', sans-serif;
+    font-size: 2em;
+    line-height: 1;
+    text-transform: uppercase;
+    max-width: .9em;
+    white-space: wrap;
+    word-wrap: break-word;
+    color: #373544;
+    &:nth-child(even){
+      color: #fff;
+    }
+  }
+}

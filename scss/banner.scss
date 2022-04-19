@@ -1,0 +1,138 @@
+#banner {
+  background: url('./../img/background.png');
+  background-size: cover;
+  animation: zoomOut .8s forwards;
+  transform: scale(1.25);
+  transform-origin: top right;
+  .left-col  {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+}
+
+@keyframes zoomOut {
+  from {
+    transform: scale(1.25);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+.banner-caption {
+  .banner-title {
+    font-size: 4.875em;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin: 0 0 10px 0;
+    letter-spacing: .05em;
+  }
+  .subtitle {
+    color: #fff;
+    font-size: 1.6em;
+    font-weight: 500;
+    font-style: italic;
+    letter-spacing: .05em;
+  }
+}
+.underline {
+  position: relative;
+  height: 7px;
+  margin: -10px 0 5px 0;
+  width: 100%;
+
+  &:after {
+    position: absolute;
+    content: '';
+    height: 7px;
+    top: 0;
+    left: 100%;
+    bottom: 0;
+    right: 0;
+    background: #fff;
+    animation: reachLeft 1.5s forwards;
+    animation-delay: .7s;
+    animation-timing-function: cubic-bezier(0, 0, .015, 1);
+  }
+  &:before {
+    z-index: 100;
+    position: absolute;
+    content: '';
+    height: 7px;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 100%;
+    background: #393344;
+    animation: reachRight 1.5s forwards;
+    animation-timing-function: cubic-bezier(0, 0, .015, 1);
+    animation-delay: 2s;
+  }
+  @keyframes reachLeft {
+    from {
+      left: 100%;
+    }
+    to {
+      left: 5%;
+    }
+  }
+  @keyframes reachRight {
+    from {
+      right: 100%;
+    }
+    to {
+      right: 53%;
+    }
+  }
+}
+
+.banner-title {
+  color: #fff;
+  overflow: hidden;
+  display: flex;
+  > div {
+    line-height: 1em;
+    transform: translateY(100%);
+    animation: getUp .3s forwards;
+    animation-timing-function: cubic-bezier(0.540, 0.990, 0.995, 0.990);
+    @for $i from 1 through 12 {
+      &:nth-child(#{$i}) {
+        animation-delay: #{($i * .15) + .45}s;
+      }
+    }
+  }
+}
+@keyframes getUp {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+@keyframes getDown {
+  from {
+    transform: translateY(-150%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.subtitle {
+  display: flex;
+  overflow: hidden;
+  height: 1.25em;
+  > div {
+    height: .9em;
+    transform: translateY(-150%);
+    animation: getDown .6s forwards;
+    animation-timing-function: cubic-bezier(0.540, 0.990, 0.995, 0.990);
+    @for $i from 1 through 3 {
+      &:nth-child(#{$i}) {
+        animation-delay: #{($i * .25) + .75}s;
+      }
+    }
+  }
+}
